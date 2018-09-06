@@ -37,5 +37,16 @@ script:
   - cd build
   - cmake -DCMAKE_TOOLCHAIN_FILE=../modules/mingw-toolchain.cmake ../${SRC_DIR}/
   - make
-  - CTEST_OUTPUT_ON_FAILURE=1 make test || cat in.txt
-  - ctest -T memcheck
+  - CTEST_OUTPUT_ON_FAILURE=1 make test
+  - cat in.txt || true
+
+# - ctest -VV -T memcheck
+# valgrind doesn't work with wine (╯°□°）╯︵ ┻━┻ (but it should)
+  - cp in.txt ../ && rm -rf * && mv ../in.txt . || true
+  - cmake ../${SRC_DIR}/
+  - make
+  - valgrind 
+    --leak-check=full 
+    --track-fds=yes 
+    --error-exitcode=1 
+    ./lab0 < in.txt
