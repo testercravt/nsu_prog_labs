@@ -33,6 +33,7 @@ matrix:
       - SRC_DIR="lab9"
 
 script:
+  - sudo sysctl -w vm.mmap_min_addr=0
   - mkdir build
   - cd build
   - cmake -DCMAKE_TOOLCHAIN_FILE=../modules/mingw-toolchain.cmake ../${SRC_DIR}/
