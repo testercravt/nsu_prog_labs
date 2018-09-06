@@ -1,6 +1,14 @@
 # nsu_prog_labs
+## How-to
+* fork repo
+* setup repo in https://travis-ci.org/
+* fix links in readme
+* implement some tasks
+* create pull request (it will be rejected anyway)
+* ???????
+* PROFIT!!!
 
-### Labs status
+## Labs status
 
 |Task          |Status                    |
 |--------------|--------------------------|
