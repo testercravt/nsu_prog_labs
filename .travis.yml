@@ -1,0 +1,41 @@
+language: c
+dist: trusty
+
+addons:
+  apt:
+    packages:
+      - mingw-w64
+      - cmake
+      - valgrind
+      - wine
+
+matrix:
+  include:
+  - env:
+      - SRC_DIR="lab0"
+  - env:
+      - SRC_DIR="lab1"
+  - env:
+      - SRC_DIR="lab2"
+  - env:
+      - SRC_DIR="lab3"
+  - env:
+      - SRC_DIR="lab4"
+  - env:
+      - SRC_DIR="lab5"
+  - env:
+      - SRC_DIR="lab6"
+  - env:
+      - SRC_DIR="lab7"
+  - env:
+      - SRC_DIR="lab8"
+  - env:
+      - SRC_DIR="lab9"
+
+script:
+  - mkdir build
+  - cd build
+  - cmake -DCMAKE_TOOLCHAIN_FILE=../modules/mingw-toolchain.cmake ../${SRC_DIR}/
+  - make
+  - CTEST_OUTPUT_ON_FAILURE=1 make test || cat in.txt
+  - ctest -T memcheck
