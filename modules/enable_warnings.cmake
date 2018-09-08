@@ -18,7 +18,6 @@ else ()
             -Waddress \
             -Warray-bounds \
             -Wbuiltin-macro-redefined \
-            -Wconversion -Winit-self \
             -Wswitch \
             -Wunreachable-code \
             -pedantic \
