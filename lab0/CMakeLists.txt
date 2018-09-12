@@ -7,6 +7,8 @@ set(SRC src/main.c)
 
 add_executable(${PROJECT_NAME} ${SRC})
 
+target_link_libraries(${PROJECT_NAME} m)
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../modules")
 include(enable_warnings)
 include(valgrind)
